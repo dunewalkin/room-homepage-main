@@ -1,0 +1,44 @@
+@use "../base/mixins" as *;
+@use "../base/base" as *;
+
+.footer-section {
+   @include width-height(100%, 33%);
+   @include flexbox(row, space-between, flex-start, 0);
+
+   @include mq (large) {
+      @include flexbox(column, center, center, 0);
+   }
+}
+
+.footer-content-container {
+   @include flexbox(column, center, center, 1rem);
+   @include width-height(40%, 100%);
+
+   @include mq (large) {
+      @include width-height(100%, 100%);
+   }
+}
+
+.footer-content {
+   @include flexbox(column, center, flex-start, 1rem);
+   max-width: 30.25rem;
+   padding-inline: 3rem;
+
+
+   @include mq (large) {
+      max-width: none;
+      padding-inline: 2rem;
+      padding-block: 2.5rem 3rem;
+   }
+}
+
+.left-pic-wrapper,
+.right-pic-wrapper {
+   overflow: hidden;
+   @include width-height(30%, 100%);
+
+   @include mq (large) {
+      @include width-height(100%, 100%);
+   }
+}
+

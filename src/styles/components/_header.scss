@@ -1,0 +1,147 @@
+@use "../base/mixins" as *;
+@use "../base/base" as *;
+
+.header {
+   position: absolute;
+   z-index: 15;
+   @include flexbox(row, flex-start, center, 3.52rem);
+   margin-top: 4rem;
+   margin-left: 4rem;
+
+   @include mq (large) {
+      width: 100%;
+      margin-top: 3rem;
+      margin-inline: 0;
+      @include flexbox(row, center, center, 0);
+   }
+}
+
+.header-active {
+   @include mq (large) {
+      margin-top: 0;
+      position: relative;
+   }
+}
+
+.header-logo {
+   margin-bottom: 0.625rem;
+
+   @include mq (large) {
+      margin-bottom: 0rem;
+   }
+}
+
+nav {
+   display: block;
+
+   @include mq (large) {
+      width: 100%;
+      display: none;
+      padding: 3rem 1.5rem;
+      background-color: $neutral-1;
+      margin: 0;
+   }
+}
+
+.nav-active {
+   @include flexbox(row, flex-end, center, 0);
+   z-index: 15;
+}
+
+li a {
+   text-decoration: none;
+
+   font-size: 1rem;
+   font-weight: 600;
+   line-height: normal;
+   letter-spacing: -0.04169rem;
+   color: $neutral-1;
+
+   @include mq (large) {
+      color: $neutral-2;
+   }
+
+   &::after {
+      content: '';
+      display: block;
+      @include width-height(0, 2px);
+      background-color: $neutral-1;
+      margin: auto;
+      margin-top: 0.5rem;
+
+      @include mq (large) {
+         display: none;
+      }
+   }
+
+   &:hover::after {
+      @include width-height(1rem, 2px);
+      transition: width .2s linear;
+   }
+}
+
+li {
+   list-style: none;
+}
+
+ul {
+   padding: 0;
+   @include flexbox(row, flex-start, center, 1.94rem);
+   margin-block: 0;
+   
+}
+
+.menu-btn {
+   display: none;
+
+   @include mq (large) {
+     display: block;
+     position: absolute;
+     background-color: transparent;
+     left: 1.5rem;
+     top: 0;
+     padding: 0;
+     z-index: 20;
+   }
+}
+
+.overlay {
+   @include mq (large) {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: all .3s linear;
+      background-color: $neutral-2;
+   }
+}
+
+.overlay-active {
+   z-index: 14;
+   opacity: .5;
+}
+
+.opacity {
+   position: absolute;
+   width: 100%;
+   height: 100vh;
+   top: 0;
+   left: 0;
+   opacity: 0;
+   transition: all .6s linear;
+   background-color: $neutral-2;
+}
+
+.opacity-active {
+   opacity: .5;
+}
+
+.active {
+   display: block;
+}
+
+.hidden {
+   display: none;
+}

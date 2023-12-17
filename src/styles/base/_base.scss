@@ -1,0 +1,86 @@
+@use "../base/mixins" as *;
+
+$primary-1: hsl(0, 0%, 63%); //Dark Gray
+$primary-2: hsl(0, 0%, 0%); //Black
+$neutral-1: hsl(0, 0%, 100%); // White
+$neutral-2: hsl(0, 0%, 27%); //Very Dark Gray
+
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&display=swap');
+
+body {
+   font-family: League Spartan, sans-serif;
+   margin: 0;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   background-color: $neutral-1;
+   color: $primary-1;
+   font-size: 1rem;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 1.375rem; /* 137.5% */
+   letter-spacing: -0.02081rem;   
+}
+
+ p, h1, h2, h3, h4, h5, h6 {
+   margin: 0;
+   padding: 0;
+   overflow-wrap: break-word;
+ }
+
+.heading-l {
+   color: $primary-2;
+   font-size: 3rem;
+   font-style: normal;
+   font-weight: 600;
+   line-height: normal;
+   letter-spacing: -0.125rem;
+
+   @include mq (medium) {
+      font-size: 2.5rem;
+      letter-spacing: -0.10419rem;
+   }
+}
+
+.heading-m {
+   color: $primary-2;
+   font-size: 1rem;
+   font-weight: 700;
+   line-height: 1.375rem; 
+   letter-spacing: 0.41669rem;
+   text-transform: uppercase;
+
+   @include mq (medium) {
+      font-size: 0.875rem;
+      letter-spacing: 0.36456rem;
+   }
+}
+
+button {
+   cursor: pointer;
+   outline: none;
+   border: none;
+   transition: all 0.2s;
+}
+
+img {
+   display: block;
+}
+
+.main-container {
+   min-height: 100%;
+   @include width-height(100%, 100vh);
+   @include flexbox(column, flex-start, space-between,0);
+
+   @include mq (large) {
+      @include width-height(100%, 100%);
+   }
+}
+
+
+.left-pic,
+.right-pic,
+.main-pic {
+   object-fit: cover;
+   object-position: center;
+   @include width-height(100%, 100%);
+}

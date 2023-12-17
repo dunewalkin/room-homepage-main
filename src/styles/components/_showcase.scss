@@ -1,0 +1,115 @@
+@use "../base/mixins" as *;
+@use "../base/base" as *;
+
+.top-section {
+   @include width-height(100%, 67%);
+   @include flexbox(row, space-between, center, 0);
+   position: relative;
+
+   @include mq (large) {
+      @include width-height(100%, 100vh);
+      @include flexbox(column, center, center, 0);
+   }
+}
+
+.main-pic-wrapper {
+   @include width-height(60%, 100%);  
+
+   @include mq (large) {
+      @include width-height(100%, 50%); 
+   }
+}
+
+.main-pic {
+   @include width-height(100%, 100%);
+   object-fit: cover;
+   object-position: center;
+}
+
+.top-content-container {
+   @include width-height(40%, 100%);
+   @include flexbox(column, center, center, 0);
+
+   @include mq (large) {
+      @include width-height(100%, 50%); 
+   }
+}
+
+.top-content {
+   max-width: 25rem;
+   padding-inline: 2rem;  
+   @include flexbox(column, center, flex-start, 0);
+
+   @include mq (large) {
+      max-width: none; 
+      padding-block: 3rem;
+   }
+}
+
+.content-secondary {
+   margin-block: 1.13rem 1.63rem;
+
+   @include mq (large) {
+      margin-block: 0.94rem 2.56rem;
+   }
+}
+
+.order-btn {
+   font-size: 0.9375rem;
+   font-weight: 500;
+   line-height: 1rem; 
+   letter-spacing: 0.78125rem;
+   text-transform: uppercase;
+   color: $primary-2;
+
+   background-color: transparent;
+   fill: $primary-2;
+
+
+   &:hover,:focus-visible {
+      color: $primary-1;
+      fill: $primary-1;
+   }
+
+   @include mq (medium) {
+      font-size: 0.9375rem;
+   }
+}
+
+.arrow {
+   margin-left: 1rem;
+}
+
+.btn-wrapper {
+   @include position (absolute, auto, 30%, 0, auto);
+   @include flexbox(row, center, center, 0);
+   @include width-height(10%, 5rem);
+   z-index: 13;
+
+   @include mq (large) {
+      @include position (absolute, 50%, 0, auto, auto);
+      @include width-height(10rem, 5rem);
+      transform: translateY(-100%);
+   }
+
+   @include mq (small) {
+      @include width-height(7rem, 3.5rem);
+   }
+}
+
+.control-btn {
+   @include width-height(50%, 5rem);
+   background-color: $primary-2;
+
+   @include flexbox(row, center, center, 0);
+
+   &:hover,:focus-visible {
+      background-color: $neutral-2;
+   }
+
+   @include mq (small) {
+      @include width-height(3.5rem, 3.5rem);
+   }
+}
+
+
